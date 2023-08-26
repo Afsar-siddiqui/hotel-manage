@@ -1,0 +1,12 @@
+.footer-inner{
+    padding: 20px 0;
+}
+.footer-contacts{
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+.footer-widget .footer-contacts-widget p{
+    font-size: 14px;
+}

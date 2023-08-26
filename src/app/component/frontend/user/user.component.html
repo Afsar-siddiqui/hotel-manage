@@ -1,0 +1,157 @@
+<div class="content">
+    <!-- section-->
+    <section class="flat-header color-bg adm-header">
+        <div class="wave-bg wave-bg2"></div>
+        <div class="container">
+            <div class="dasboard-wrap fl-wrap">
+                <div class="dasboard-breadcrumbs breadcrumbs"><a href="#">Home</a><a href="#">Dashboard</a><span>Profile page</span></div>
+                <!--dasboard-sidebar-->
+                <div class="dasboard-sidebar">
+                    <div class="dasboard-sidebar-content fl-wrap">
+                        <div class="dasboard-avatar">
+                            <img src="assets/images/avatar/avtar.jpg" alt="">
+                        </div>
+                        <div class="dasboard-sidebar-item fl-wrap">
+                            <h3>
+                                <span>Welcome </span>
+                                {{userDetails?.first_name}} {{userDetails?.last_name}}
+                            </h3>
+                        </div>
+                        <a href="javascript:()" class="ed-btn">Add Hotel</a>                                        
+                        <div class="user-stats fl-wrap">
+                            <ul>
+                                <li>
+                                    Listings	
+                                    <span>4</span>
+                                </li>
+                                <li>
+                                    Bookings
+                                    <span>32</span>	
+                                </li>
+                                <li>
+                                    Reviews	
+                                    <span>9</span>	
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="log-out-btn color-bg" (click)="onLogout()">Log Out <i class="far fa-sign-out"></i></a>
+                    </div>
+                </div>
+                <!--dasboard-sidebar end--> 
+                <!-- dasboard-menu-->
+                <div class="dasboard-menu">
+                    <div class="dasboard-menu-btn color3-bg">Dashboard Menu <i class="fal fa-bars"></i></div>
+                   <!--  <div>
+                        <tabset #tabset>
+                            <tab tab1 heading="First tab" id="first">Tab 1 content</tab>
+                            <tab tab2 heading="Second tab" id="second">Tab 2 content</tab>
+                          </tabset>
+                      </div> -->
+                    <ul class="dasboard-menu-wrap">
+                        <li>
+                            <a href="dashboard.html" class="user-profile-act"><i class="far fa-user"></i>Profile</a>
+                            <ul>
+                                <li><a href="javascript:()">Edit profile</a></li>
+                                <li><a href="javascript:()">Change Password</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:()"><i class="far fa-envelope"></i> Messages <span>3</span></a></li>
+                        <li>
+                            <a href="javascript:()"><i class="far fa-th-list"></i> My listigs  </a>
+                            <ul>
+                                <li><a href="#">Active</a><span>5</span></li>
+                                <li><a href="#">Pending</a><span>2</span></li>
+                                <li><a href="#">Expire</a><span>3</span></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:()"> <i class="far fa-calendar-check"></i> Bookings <span>2</span></a></li>
+                        <li><a href="javascript:()"><i class="far fa-comments"></i> Reviews </a></li>
+                    </ul>
+                </div>
+                <!--dasboard-menu end-->
+                <!--Tariff Plan menu-->
+                <div   class="tfp-btn"><span>Tariff Plan : </span> <strong>Extended</strong></div>
+                <div class="tfp-det">
+                    <p>You Are on <a href="#">Extended</a> . Use link bellow to view details or upgrade. </p>
+                    <a href="#" class="tfp-det-btn color2-bg">Details</a>
+                </div>
+                <!--Tariff Plan menu end-->
+            </div>
+        </div>
+    </section>
+    <!-- section end-->
+    <!-- section-->
+    <section class="middle-padding">
+        <div class="container">
+            <!--dasboard-wrap-->
+            <div class="dasboard-wrap fl-wrap">
+                <!-- dashboard-content--> 
+                <div class="dashboard-content fl-wrap">
+                    <div class="dashboard-list-box fl-wrap" *ngIf="bookingList">
+                        <div class="dashboard-header fl-wrap">
+                            <h3>Your Bookings</h3>
+                        </div>
+                        <!-- dashboard-list end-->    
+                        <div class="dashboard-list" *ngFor="let list of bookingList">
+                            <div class="dashboard-message">
+                                <span class="new-dashboard-item" >New</span>
+                                <div class="dashboard-message-avatar">
+                                    <img src="assets/images/avatar/avtar.jpg" alt="">
+                                </div>
+                                <div class="dashboard-message-text">
+                                    <h4>{{list.customer_name}} - <span>({{list.booking_time | slice:0:10}})</span></h4>
+                                    <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Hotel Name :</span> :
+                                        <span class="booking-text booking-name" (click)="onRouteDetails(list)"><a href="javascript:()">{{list.Hotel.name}}</a></span>
+                                    </div>
+                                    <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Room Type :</span> :
+                                        <span class="booking-text" (click)="onRouteDetails(list)"><a href="javascript:()">{{list.room_type_name}}</a></span>
+                                    </div>
+                                    <!-- <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Persons :</span>   
+                                        <span class="booking-text">4 Peoples</span>
+                                    </div> -->
+                                    <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Booking Date :</span>   
+                                        <span class="booking-text">{{list.check_in_date | slice:0:10}}  - {{list.check_out_date |slice:0:10}}</span>
+                                    </div>
+                                    <div class="booking-details fl-wrap">                                                               
+                                        <span class="booking-title">Mail :</span>  
+                                        <span class="booking-text"><a href="mailto:{{list.customer_email}}" target="_top">{{list.customer_email}}</a></span>
+                                    </div>
+                                    <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Phone :</span>   
+                                        <span class="booking-text"><a href="tel:+{{list.customer_phone}}" target="_top">{{list.customer_phone}}</a></span>
+                                    </div>
+                                    <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Payment State :</span> 
+                                        <span class="booking-text" *ngIf="list.pay_at_hotel == 'True'"> <strong class="done-paid">Paid  </strong>  Pay at hotel</span>
+                                        <span class="booking-text" *ngIf="list.pay_at_hotel == 'False'"> <strong class="done-paid">Paid  </strong>  Online</span>
+                                    </div>
+                                    <div class="booking-details fl-wrap">
+                                        <span class="booking-title">Hotel Address :</span> 
+                                        <span class="booking-text"> {{list.Hotel.address}} </span>
+                                    </div>
+                                    <span class="fw-separator"></span>
+                                    <!-- <p style="font-size: 13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc posuere convallis purus non cursus. Cras metus neque, gravida sodales massa ut. </p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- dashboard-list end-->    
+                                                                     
+                                                                  
+                    </div>
+                </div>
+                <!-- dashboard-list-box end--> 
+            </div>
+            <!-- dasboard-wrap end-->
+        </div>
+    </section>
+    <!-- section end-->
+    <div class="limit-box fl-wrap"></div>
+</div>
+
+
+
+

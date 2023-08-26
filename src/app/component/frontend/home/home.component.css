@@ -1,0 +1,80 @@
+.inpt_dec{
+    top: 15px;
+}
+.qty-dropdown-header{
+    font-weight: 600;
+}
+.fa-users:before{
+    font-size: 13px;
+}
+.inline-facts .fa-users:before{
+    font-size: 54px;
+}
+
+.list-dropdown-content{
+    background: #fff;
+    text-align: left;
+    padding: 5px 15px 15px;
+    font-size: 12px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.recent-home-discription{
+    line-height: 16px;
+}
+
+.search_list_place{
+    z-index: 999;
+}
+
+section.hero-section {
+    padding: 100px 0;
+    z-index: 100;
+}
+.main-search-input{
+    margin-top: 20px;
+}
+.hotel-card .geodir-category-location a{
+    width: 70%;
+}
+
+.geodir-category-img:hover img, .gallery-item:hover img, .geodir-category-img img, .gallery-item img{
+    height: 200px;
+}
+
+
+.big-pad-pr-item p{
+    font-size: 13px;
+    text-align: justify;
+}
+
+.list-dropdown-content li{
+    cursor: pointer;
+    padding: 1px;
+    border-bottom: 1px solid #ddd;
+}
+.list-dropdown-content li:hover{
+    background-color: #f2f2f2;
+}
+
+.geodir-category-location a{
+    font-weight: 400;
+}
+
+.recent-night{
+    padding: 5px 5px;
+    color: #3AACED;
+}
+.recent-night span{
+    font-size: 9px;
+    color: #777;
+}
+
+.amenities-list li{
+    display: none;
+}
+.amenities-list li:nth-child(1), .amenities-list li:nth-child(2), .amenities-list li:nth-child(3), .amenities-list li:nth-child(4), .amenities-list li:nth-child(5){
+    display: block !important;
+}
